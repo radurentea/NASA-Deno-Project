@@ -24,9 +24,12 @@ app.use(async (ctx) => {
     'javascripts/script.js',
     'stylesheets/style.css'
   ];
-  await send(ctx, filePath, {
-    root: `${Deno.cwd()}/public`,
-  });
+  if (fileWhitelist.includes(filePath)) {
+    await send(ctx, filePath, {
+      root: `${Deno.cwd()}/public`,
+    });
+  }
+  
 });
 
 app.use(async (ctx) => {
