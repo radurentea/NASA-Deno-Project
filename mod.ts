@@ -9,7 +9,7 @@ const PORT = 8000;
 
 await log.setup({
   handlers: {
-    console: new log.handlers.ConsoleHandler('INDO');
+    console: new log.handlers.ConsoleHandler('INFO'),
   },
   loggers: {
     default: {
