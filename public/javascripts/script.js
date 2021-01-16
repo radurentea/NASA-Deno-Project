@@ -20,11 +20,14 @@ function loadLaunches() {
 }
 
 function loadPlanets() {
-  // TODO: Once API is ready.
-  // const planetSelector = document.getElementById("planets-selector");
-  // planets.forEach((planet) => {
-  //   planetSelector.innerHTML += `<option value="${planet.kepler_name}">${planet.kepler_name}</option>`;
-  // });
+  return fetch('/planets')
+    .then((response) => response.json())
+    .then((planets) => {
+      const planetSelector = document.getElementById("planets-selector");
+      planets.forEach((planet) => {
+        planetSelector.innerHTML += `<option value="${planet.kepler_name}">${planet.kepler_name}</option>`;
+      });
+    })
 }
 
 function abortLaunch() {
