@@ -50,3 +50,7 @@ export async function downloadLaunchData() {
 
   await downloadLaunchData();
   log.info(`Donwloaded data for ${ launches.size } SpaceX launches.`);
+
+  export function getAll() {
+    return Array.from(launches.values());
+  };
