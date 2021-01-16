@@ -114,8 +114,14 @@ input[type="text"], textarea, select, input[type="date"] {
   padding: 0 2px;
   font-family: inherit;
   font-size: inherit;
+  height: 28px;
   min-width: 15em;
   margin: 0;
+}
+
+#planets-selector {
+  min-width: 306px;
+  height: 30px;
 }
 
 label {
