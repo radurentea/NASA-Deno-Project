@@ -54,3 +54,10 @@ export async function downloadLaunchData() {
   export function getAll() {
     return Array.from(launches.values());
   };
+
+  export function getOne(id : number) {
+    if (launches.has(id)) {
+      return launches.get(id);
+    }
+    return null;
+  }
