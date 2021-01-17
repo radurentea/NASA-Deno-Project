@@ -1,7 +1,7 @@
 import * as log from 'https://deno.land/std/log/mod.ts';
 import * as _ from 'https://deno.land/x/lodash@4.17.15-es/lodash.js';
 
-interface Launch{
+interface Launch {
   flightNumber: number;
   mission: string;
   rocket: string;
@@ -53,11 +53,18 @@ export async function downloadLaunchData() {
 
   export function getAll() {
     return Array.from(launches.values());
-  };
+  }
 
   export function getOne(id : number) {
     if (launches.has(id)) {
       return launches.get(id);
     }
     return null;
+  }
+
+  export function addOne(data : Launch) {
+    launches.set(data.flightNumber, Object.assign(data, {
+      upcoming: true,
+      customers: ['Zero to Mastery', 'NASA'],
+    }));
   }
