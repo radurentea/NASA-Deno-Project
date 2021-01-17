@@ -1,5 +1,6 @@
 import * as log from 'https://deno.land/std/log/mod.ts';
 import * as _ from 'https://deno.land/x/lodash@4.17.15-es/lodash.js';
+import { Context } from "https://deno.land/x/oak@v6.4.1/context.ts";
 
 interface Launch {
   flightNumber: number;
@@ -67,4 +68,13 @@ export async function downloadLaunchData() {
       upcoming: true,
       customers: ['Zero to Mastery', 'NASA'],
     }));
+  }
+
+  export function removeOne(id: number) {
+    const aborted = launches.get(id);
+    if (aborted) {
+      aborted.upcoming = false;
+      aborted.success = false;
+    }
+    return aborted;
   }
